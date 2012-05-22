@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class DealTest < ActiveSupport::TestCase
-	Factory(:deal)
+	FactoryGirl.create(:deal)
 
 	should validate_uniqueness_of(:name)
 	should validate_presence_of(:name)
@@ -12,8 +12,8 @@ class DealTest < ActiveSupport::TestCase
   should validate_presence_of(:normal_price)
   should validate_numericality_of(:normal_price)
 
-  should validate_presence_of(:deal_price)
-  should validate_numericality_of(:deal_price)
+  should validate_presence_of(:price)
+  should validate_numericality_of(:price)
 
   should validate_numericality_of(:quantity)
 

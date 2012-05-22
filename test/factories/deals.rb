@@ -6,7 +6,7 @@ FactoryGirl.define do
     tagline "MyString"
     description "MyText"
     normal_price 1.5
-    deal_price 1.5
+    price 1.5
     quantity 1
     sale_end_date "2012-05-22 00:16:01"
     deal_expiration_date "2012-05-22 00:16:01"

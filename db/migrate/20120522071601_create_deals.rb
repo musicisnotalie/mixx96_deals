@@ -5,7 +5,7 @@ class CreateDeals < ActiveRecord::Migration
       t.string :tagline
       t.text :description
       t.decimal :normal_price, precision: 8, scale: 2
-      t.decimal :deal_price, precision: 8, scale: 2
+      t.decimal :price, precision: 8, scale: 2
       t.integer :quantity
       t.datetime :sale_end_date
       t.datetime :deal_expiration_date

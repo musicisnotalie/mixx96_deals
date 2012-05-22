@@ -1,13 +1,14 @@
 class Merchant < ActiveRecord::Base
 	#relationships
 	has_many :deals
+	has_many :coupons
 
 	#validations
 	validates_uniqueness_of :name
 	validates_presence_of :name, :address, :city, :state, :zip, :logo
 	validates_length_of :state, :minimum => 2, :maximum => 2
 
-	validates_associated :deals
+	validates_associated :deals, :coupons
 
 	validates :email,   
             :uniqueness => true,   

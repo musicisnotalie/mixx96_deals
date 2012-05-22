@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class MerchantTest < ActiveSupport::TestCase
-  Factory(:merchant)
+  FactoryGirl.create(:merchant)
 
   should validate_uniqueness_of(:name)
 
