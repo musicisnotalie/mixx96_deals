@@ -7,4 +7,7 @@ class Category < ActiveRecord::Base
 	
 	#validations
 	validates :name, :presence => true, :uniqueness => true
+	
+	#mass-assignment
+	attr_accessible :name
 end

@@ -1,5 +1,10 @@
 ActiveAdmin.register Merchant do
 	filter :name
+	
+	index :as => :grid do |merchant|
+    link_to(image_tag(merchant), admin_merchant_path(merchant))
+  end
+	
 
 	form do |f|
 		f.inputs "Details" do
@@ -7,6 +12,7 @@ ActiveAdmin.register Merchant do
 			f.input :homepage
 			f.input :logo, :as => :file
 			#f.input :logo_cache, :as => :hidden
+			f.input :categories, :as => :check_boxes
 		end
 
 	  f.inputs "Address" do
@@ -23,4 +29,8 @@ ActiveAdmin.register Merchant do
 	  end
 	  f.buttons
 	end  
+	
+	sidebar :need_help? do
+    "Need help? Email us at hello@pignite.com"
+  end 
 end

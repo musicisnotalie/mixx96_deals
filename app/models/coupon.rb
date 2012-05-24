@@ -13,5 +13,5 @@ class Coupon < ActiveRecord::Base
   validates_associated :merchant
 
   #mass_assignment
-  attr_accessible :description, :expiration_date, :name, :printable_file
+  attr_accessible :description, :expiration_date, :name, :printable_file, :merhcant_id, :category_ids
 end

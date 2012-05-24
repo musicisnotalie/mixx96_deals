@@ -16,5 +16,5 @@ class Merchant < ActiveRecord::Base
             :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 
 	#mass-assignment
-  attr_accessible :address, :address2, :city, :email, :homepage, :logo, :map_link, :name, :phone_number, :state, :zip
+  attr_accessible :address, :address2, :city, :email, :homepage, :logo, :map_link, :name, :phone_number, :state, :zip, :category_ids
 end
