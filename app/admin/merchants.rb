@@ -1,10 +1,22 @@
 ActiveAdmin.register Merchant do
+	menu :priority => 3
+	
 	filter :name
 	
-	index :as => :grid do |merchant|
-    link_to(image_tag(merchant), admin_merchant_path(merchant))
+	index :as => :block do |merchant|
+    div :for => merchant, :class => "merchant-block" do
+    	div do
+    		link_to(image_tag(merchant.logo.url), edit_admin_merchant_path(merchant))
+    	end
+      h2 link_to(merchant.name, edit_admin_merchant_path(merchant))
+    end
   end
-	
+  
+  
+	show :title => :name do
+		render "merchant_show", :merchant => merchant
+	end
+  
 
 	form do |f|
 		f.inputs "Details" do

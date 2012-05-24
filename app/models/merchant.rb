@@ -17,4 +17,7 @@ class Merchant < ActiveRecord::Base
 
 	#mass-assignment
   attr_accessible :address, :address2, :city, :email, :homepage, :logo, :map_link, :name, :phone_number, :state, :zip, :category_ids
+  
+  # uploaders
+  mount_uploader :logo, LogoUploader
 end

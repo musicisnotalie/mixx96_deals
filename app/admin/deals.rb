@@ -1,8 +1,21 @@
 ActiveAdmin.register Deal do
+	menu :priority => 1
 	
 	filter :name
 	filter :merchant
 	filter :categories
+	
+	index :as => :block do |deal|
+		div :for => deal do
+    	div do 
+	    	link_to(image_tag(deal.image.url), admin_deals_path(deal))
+	    end
+	    div do
+   	  	h2 auto_link(deal.name)
+   	  end
+	  end
+  end
+	
 	
 	form do |f|
 		f.inputs do

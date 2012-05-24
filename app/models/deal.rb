@@ -11,5 +11,11 @@ class Deal < ActiveRecord::Base
   validates_associated :merchant
 
   #mass-assigment
-  attr_accessible :name, :tagline, :description, :normal_price, :price, :sale_end_date, :deal_expiration_date, :quantity, :merchant_id, :category_ids
+  attr_accessible :name, :tagline, :description, :normal_price, :price, :sale_end_date, :deal_expiration_date, :quantity, :image, :merchant_id, :category_ids
+  
+  # uploader
+  mount_uploader :image, ImageUploader
+  
+  #scopes
+  scope :recent, limit(5)
 end

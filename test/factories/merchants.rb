@@ -1,4 +1,5 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
+include ActionDispatch::TestProcess
 
 FactoryGirl.define do
   factory :merchant do
@@ -8,7 +9,7 @@ FactoryGirl.define do
     city "Olympia"
     state "WA"
     zip "98501"
-    logo "logo.jpg"
+    logo {fixture_file_upload('test/fixtures/files/mekong.jpg', 'image/jpg')}
     phone_number "1234567890"
     email "joe@joesmufflershop.com"
     homepage "http://joesmufflershop.com"
