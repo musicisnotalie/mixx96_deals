@@ -6,5 +6,9 @@ class CouponTest < ActiveSupport::TestCase
 	should validate_presence_of(:name)
 	should validate_presence_of(:description)
 	should validate_presence_of(:expiration_date)
+
 	should belong_to(:merchant)
+
+	should have_many(:categorizations)
+	should have_many(:categories).through(:categorizations)
 end

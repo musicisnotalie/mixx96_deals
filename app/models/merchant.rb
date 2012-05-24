@@ -2,7 +2,8 @@ class Merchant < ActiveRecord::Base
 	#relationships
 	has_many :deals
 	has_many :coupons
-
+	has_many :categorizations
+	has_many :categories, :through => :categorizations
 	#validations
 	validates_uniqueness_of :name
 	validates_presence_of :name, :address, :city, :state, :zip, :logo

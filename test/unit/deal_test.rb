@@ -21,5 +21,8 @@ class DealTest < ActiveSupport::TestCase
   should validate_presence_of(:deal_expiration_date)
 
   should belong_to(:merchant)
+  
   should have_many(:orders)
+  should have_many(:categorizations)
+  should have_many(:categories).through(:categorizations)
 end

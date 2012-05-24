@@ -21,4 +21,6 @@ class MerchantTest < ActiveSupport::TestCase
 
   should have_many(:deals)
   should have_many(:coupons)
+  should have_many(:categorizations)
+  should have_many(:categories).through(:categorizations)
 end

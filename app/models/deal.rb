@@ -1,6 +1,8 @@
 class Deal < ActiveRecord::Base
   #relationships
   belongs_to :merchant
+ 	has_many :categorizations
+  has_many :categories, :through => :categorizations
 
   #validations
   validates_presence_of :name, :tagline, :description, :normal_price, :price, :sale_end_date, :deal_expiration_date

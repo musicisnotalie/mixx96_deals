@@ -1,6 +1,8 @@
 class Coupon < ActiveRecord::Base
   #relationships
   belongs_to :merchant
+  has_many :categorizations
+  has_many :categories, :through => :categorizations
 
   #validations
   validates :name,
