@@ -1,0 +1,15 @@
+<div class="merchant-block">
+	<%= image_tag(merchant.logo.url) %>
+</div>
+<address>
+	<%= merchant.address %>
+	<%= merchant.try(:address2) %>
+	<%= merchant.city %>, <%= merchant.state %> <%= merchant.zip %> <br />
+	<%= link_to "Map", merchant.map_link %>
+</address>
+<p>
+	Homepage: <%= link_to "Homepage", merchant.homepage %><br />
+	Phone: <%= merchant.phone_number %><br/>
+	Email: <%= merchant.email %>
+</p>
+<p>Categories: <%= merchant.categories.map {|c| c.name}.join(",") %></p>
