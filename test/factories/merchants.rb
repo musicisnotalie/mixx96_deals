@@ -1,7 +1,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
-if Rails.env.test?
-	include ActionDispatch::TestProcess
-end
+
+include ActionDispatch::TestProcess if Rails.env.test?
+
 FactoryGirl.define do
   factory :merchant do
     name "Joe's Muffler Shop"

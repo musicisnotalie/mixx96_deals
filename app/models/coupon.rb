@@ -16,5 +16,5 @@ class Coupon < ActiveRecord::Base
   attr_accessible :description, :expiration_date, :name, :printable_file, :merchant_id, :category_ids
   
   #uploaders
-  mount_uploader :printable_file, FileUploader
+  mount_uploader :printable_file, FileUploader  
 end
