@@ -5,16 +5,23 @@ ActiveAdmin.register Deal do
 	filter :merchant
 	filter :categories
 	
-	index :as => :block do |deal|
-		div :for => deal do
-    	div do 
-	    	link_to(image_tag(deal.image.url), admin_deal_path(deal))
-	    end
-	    div do
-   	  	h2 auto_link(deal.name)
-   	  end
-	  end
-  end
+	index do
+		column :merchant
+		column :name do |deal|
+			div do 
+				image_tag(deal.image.url(:thumb))
+				
+			end
+			h5 do deal.name end
+		end
+		
+		column :price do |deal|
+			number_to_currency(deal.price)
+		end
+		column :quantity
+		column :sale_end_date
+		default_actions
+	end
 	
 	
 	form do |f|
