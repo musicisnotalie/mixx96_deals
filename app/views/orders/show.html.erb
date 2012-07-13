@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<h1>Thanks for your order <%= @order.user.email %></h1>
+<p>
+  <b>Address:</b>
+  <%= @order.address %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%= @order.address2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @order.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @order.state %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @order.zip %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

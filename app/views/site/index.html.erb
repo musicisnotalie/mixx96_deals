@@ -1,0 +1,21 @@
+<h1>MIXX Deals</h1>
+<div class="row">
+	<% @offers.flatten.each do |offer| %>
+		<div class="span3">
+				<div class="thumbnail">
+	      	<%= image_tag offer.image.url() if offer.kind_of? Deal %>
+	      	<h3><%= offer.name %></h3>
+	      	<p><%= offer.tagline %></p>
+	      
+					<%= link_to 'Find out more.', 
+							deal_path(offer), 
+							class: 'btn btn-primary' if offer.kind_of? Deal %>
+	     
+	      	<%= link_to 'Find out more.', 
+	      			coupon_path(offer), 
+	      			class: 'btn btn-primary' if offer.kind_of? Coupon %>
+
+	    	</div><!-- .thumbnail -->
+	   </div><!-- span3 -->
+	<% end %>
+</div>

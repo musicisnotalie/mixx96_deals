@@ -9,8 +9,6 @@ class Merchant < ActiveRecord::Base
 	validates_presence_of :name, :address, :city, :state, :zip, :logo
 	validates_length_of :state, :minimum => 2, :maximum => 2
 
-	validates_associated :deals, :coupons
-
 	validates :email,   
             :uniqueness => true,   
             :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }

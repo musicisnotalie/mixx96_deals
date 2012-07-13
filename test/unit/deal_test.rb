@@ -8,6 +8,7 @@ class DealTest < ActiveSupport::TestCase
 
 	should validate_presence_of(:tagline)
 	should validate_presence_of(:description)
+  should validate_presence_of(:image)
     
   should validate_presence_of(:normal_price)
   should validate_numericality_of(:normal_price)

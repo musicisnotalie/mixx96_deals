@@ -1,0 +1,20 @@
+<%= simple_form_for [:deal,@order], :input_html => { :class => 'default_class' }  do |f| %>
+  <%= f.error_notification %>
+
+  
+    <%= f.input :address %>
+    <%= f.input :address2 %>
+    <%= f.input :city %>
+    <%= f.input :state %>
+    <%= f.input :zip %>
+  
+  <%= simple_fields_for :payment do |p| %>
+    <%= p.input :credit_card %>
+    <%= p.input :expiration_date %>
+    <%= p.input :cid %>
+  <% end %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

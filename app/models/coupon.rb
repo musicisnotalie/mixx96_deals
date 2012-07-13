@@ -9,12 +9,12 @@ class Coupon < ActiveRecord::Base
   	:presence => true,
   	:uniqueness => true
   	
-  validates_presence_of :description, :expiration_date
-  validates_associated :merchant
+  validates_presence_of :description, :expiration_date, :image, :tagline, :merchant
 
   #mass_assignment
-  attr_accessible :description, :expiration_date, :name, :printable_file, :merchant_id, :category_ids
+  attr_accessible :description, :expiration_date, :name, :printable_file, :merchant_id, :category_ids, :image, :image_cache, :tagline
   
   #uploaders
-  mount_uploader :printable_file, FileUploader  
+  mount_uploader :image, ImageUploader
+  mount_uploader :printable_file, FileUploader
 end
