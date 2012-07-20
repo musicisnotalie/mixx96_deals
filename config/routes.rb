@@ -4,7 +4,10 @@ Mixx96Deals::Application.routes.draw do
 		resources :orders
 	end
 
-	resources :orders
+	resources :orders do
+    get 'failure', :on => :member
+    get 'success', :on => :member
+  end
 
   devise_for :users
 

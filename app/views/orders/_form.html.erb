@@ -1,20 +1,26 @@
 <%= simple_form_for [:deal,@order], :input_html => { :class => 'default_class' }  do |f| %>
   <%= f.error_notification %>
 
-  
-    <%= f.input :address %>
-    <%= f.input :address2 %>
-    <%= f.input :city %>
-    <%= f.input :state %>
-    <%= f.input :zip %>
-  
-  <%= simple_fields_for :payment do |p| %>
-    <%= p.input :credit_card %>
-    <%= p.input :expiration_date %>
-    <%= p.input :cid %>
-  <% end %>
+    <fieldset>
+      <legend>Billing Address</legend>
+      <%= f.input :first_name, :required => :true %>
+      <%= f.input :last_name, :required => :true %>
+      <%= f.input :address, :required => :true %>
+      <%= f.input :address2 %>
+      <%= f.input :city, :required => :true %>
+      <%= f.input :state, :required => :true %>
+      <%= f.input :zip, :required => :true %>
+    </fieldset>
+    <fieldset>
+      <legend>Payment Info</legend>
+      <%= f.input :card_type, :as => :select, :collection => [["Visa", "visa"], ["MasterCard", "master"], ["Discover", "discover"], ["American Express", "american_express"]], :required => :true %>
+      <%= f.input :card_number, :required => :true %>
+      <%= f.input :card_verification, :label => 'Card Verification Value (CVV)', :required => :true %>
+      <%= f.input :card_expires_on, :as => :date, :discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true %>
+    </fieldset>
 
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+<%= @order.errors.inspect %>

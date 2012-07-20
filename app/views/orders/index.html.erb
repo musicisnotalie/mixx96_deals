@@ -14,6 +14,7 @@
 
 <% @orders.each do |order| %>
   <tr>
+    <td><%= order.user %></td>
     <td><%= order.address %></td>
     <td><%= order.address2 %></td>
     <td><%= order.city %></td>
@@ -25,7 +26,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Order', new_order_path %>

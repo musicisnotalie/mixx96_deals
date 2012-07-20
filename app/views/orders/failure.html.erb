@@ -1,0 +1,7 @@
+<h1>Order Failed</h1>
+<div class="alert alert-block alert-error">
+  <h4 class="alert-heading">Oh no!</h4>
+  <%= @order.transactions.last.message %>
+</div>
+
+<%= render 'form' %>

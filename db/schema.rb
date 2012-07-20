@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120712091513) do
+ActiveRecord::Schema.define(:version => 20120720135112) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -108,16 +108,33 @@ ActiveRecord::Schema.define(:version => 20120712091513) do
     t.datetime "updated_at",                :null => false
   end
 
+  create_table "order_transactions", :force => true do |t|
+    t.integer  "order_id"
+    t.string   "action"
+    t.integer  "amount"
+    t.boolean  "success"
+    t.string   "authorization"
+    t.string   "message"
+    t.text     "params"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "orders", :force => true do |t|
     t.string   "address"
     t.string   "address2"
     t.string   "city"
-    t.string   "state",      :limit => 2
+    t.string   "state",           :limit => 2
     t.string   "zip"
     t.integer  "user_id"
     t.integer  "deal_id"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "ip_address"
+    t.string   "card_type"
+    t.date     "card_expires_on"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   create_table "users", :force => true do |t|

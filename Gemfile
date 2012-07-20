@@ -8,6 +8,7 @@ gem 'sqlite3'
 
 # app things in alpha order
 gem 'activeadmin'
+gem 'activemerchant', :require => 'active_merchant'
 gem 'carrierwave'
 gem 'jquery-rails'
 gem "meta_search",    '>= 1.1.0.pre'
