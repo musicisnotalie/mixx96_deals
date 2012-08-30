@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.3'
 
 # DB
-gem 'sqlite3'
+gem 'pg'
 
 # app things in alpha order
 gem 'activeadmin'
