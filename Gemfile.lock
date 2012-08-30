@@ -168,6 +168,8 @@ GEM
     responders (0.9.1)
       railties (~> 3.1)
     rmagick (2.13.1)
+    rvm-capistrano (1.2.6)
+      capistrano (>= 2.0.0)
     sass (3.1.19)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -224,6 +226,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.3)
   rmagick
+  rvm-capistrano
   sass-rails
   shoulda
   simple_form

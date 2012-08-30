@@ -11,6 +11,7 @@ gem 'activeadmin'
 gem 'activemerchant', :require => 'active_merchant'
 gem 'carrierwave'
 gem 'capistrano'
+gem 'rvm-capistrano'
 gem "friendly_id", "~> 4.0.1"
 gem 'jquery-rails'
 gem "meta_search",    '>= 1.1.0.pre'
