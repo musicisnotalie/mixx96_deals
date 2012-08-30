@@ -24,6 +24,7 @@ set :scm_username, "jpignite"
 set :repository, "git@github.com:pignite/mixx96_deals.git"
 set :branch, "master"
 set :git_enable_submodules, 1
+set :normalize_asset_timestamps, false
 
 # runtime dependencies
 depend :remote, :gem, "bundler", ">=1.0.0.rc.2"
@@ -45,25 +46,25 @@ namespace :deploy do
 
   desc "Symlink shared resources on each release"
   task :symlink_shared, :roles => :app do
-    #run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 end
 
 after 'deploy:update_code', 'deploy:symlink_shared'
 
-namespace :bundler do
-  desc "Symlink bundled gems on each release"
-  task :symlink_bundled_gems, :roles => :app do
-    run "mkdir -p #{shared_path}/bundled_gems"
-    run "ln -nfs #{shared_path}/bundled_gems #{release_path}/vendor/bundle"
-  end
+# namespace :bundler do
+#   desc "Symlink bundled gems on each release"
+#   task :symlink_bundled_gems, :roles => :app do
+#     run "mkdir -p #{shared_path}/bundled_gems"
+#     run "ln -nfs #{shared_path}/bundled_gems #{release_path}/vendor/bundle"
+#   end
 
-  desc "Install for production"
-  task :install, :roles => :app do
-    run "cd #{release_path} && bundle install --production"
-  end
+#   desc "Install for production"
+#   task :install, :roles => :app do
+#     run "cd #{release_path} && bundle install --production"
+#   end
 
-end
+# end
 
-after 'deploy:update_code', 'bundler:symlink_bundled_gems'
-after 'deploy:update_code', 'bundler:install'
+# after 'deploy:update_code', 'bundler:symlink_bundled_gems'
+# after 'deploy:update_code', 'bundler:install'
