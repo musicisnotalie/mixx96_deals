@@ -18,3 +18,4 @@ pickle-email-*.html
 public/uploads
 # Mac Stuff
 .DS_store
+database.yml
