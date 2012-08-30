@@ -20,7 +20,7 @@ class Order < ActiveRecord::Base
   #scopes
   scope :complete, lambda { where :completed => true }
   scope :incomplete, lambda { where :completed => false }
-  scope :all, all
+  scope :all, lambda { all }
   
   #methods
   def purchase
