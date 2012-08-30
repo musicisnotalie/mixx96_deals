@@ -10,4 +10,8 @@ class Category < ActiveRecord::Base
 	
 	#mass-assignment
 	attr_accessible :name
+
+	#SLUGS
+	extend FriendlyId
+  friendly_id :name, use: :slugged
 end

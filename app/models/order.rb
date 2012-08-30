@@ -2,7 +2,8 @@ class Order < ActiveRecord::Base
 	#relationships
 	belongs_to :deal
 	belongs_to :user
-	has_many :transactions, :class_name => "OrderTransaction"
+	has_one :transaction, :class_name => "OrderTransaction", :dependent => :destroy
+  has_one :merchant, :through => :deal
 
 	#mass-assigment
   attr_accessible :address, :address2, :city, :state, :zip, :card_number, :card_verification, 
@@ -12,13 +13,18 @@ class Order < ActiveRecord::Base
   attr_accessor :card_number, :card_verification
   
   #validations
-  validates_presence_of :address, :city, :state, :zip, :card_number, :card_verification, 
+  validates_presence_of :address, :city, :state, :zip,  
   :first_name, :last_name, :card_type, :card_expires_on
   validate :validate_card, :on => :create
+
+  #scopes
+  scope :complete, lambda { where :completed => true }
+  scope :incomplete, lambda { where :completed => false }
+  scope :all, all
   
   #methods
   def purchase
-    response = GATEWAY.purchase(price_in_cents, credit_card, purchase_options)
+    response = ::GATEWAY.purchase(price_in_cents, credit_card, purchase_options)
     transactions.create!(:action => "purchase", :amount => price_in_cents, :response => response)
     response.success?
   end
@@ -27,18 +33,23 @@ class Order < ActiveRecord::Base
     (deal.price*100).round
   end
 
+  def complete!
+  	toggle!(:completed)
+  	logger.debug "****************** ORDER MARKED COMPLETED ****************"
+  end
+
   private
   
   def purchase_options
     {
       :ip => ip_address,
       :billing_address => {
-        :name     => "Ryan Bates",
-        :address1 => "123 Main St.",
-        :city     => "New York",
-        :state    => "NY",
+        :name     => "#{first_name} #{last_name}",
+        :address1 => address,
+        :city     => city,
+        :state    => state,
         :country  => "US",
-        :zip      => "10001"
+        :zip      => zip
       }
     }
   end

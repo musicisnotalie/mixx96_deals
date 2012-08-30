@@ -15,6 +15,10 @@ class Deal < ActiveRecord::Base
   # uploader
   mount_uploader :image, ImageUploader
   
+  #SLUGS
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   #scopes
   scope :recent, limit(5)
 end

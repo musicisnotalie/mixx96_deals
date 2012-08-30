@@ -4,6 +4,8 @@ class Merchant < ActiveRecord::Base
 	has_many :coupons
 	has_many :categorizations
 	has_many :categories, :through => :categorizations
+  has_many :orders, :through => :deals
+
 	#validations
 	validates_uniqueness_of :name
 	validates_presence_of :name, :address, :city, :state, :zip, :logo
@@ -15,6 +17,10 @@ class Merchant < ActiveRecord::Base
 
 	#mass-assignment
   attr_accessible :address, :address2, :city, :email, :homepage, :logo, :map_link, :name, :phone_number, :state, :zip, :category_ids
+  
+  #SLUGS
+	extend FriendlyId
+  friendly_id :name, use: :slugged
   
   # uploaders
   mount_uploader :logo, LogoUploader

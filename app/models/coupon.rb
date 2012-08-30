@@ -17,4 +17,8 @@ class Coupon < ActiveRecord::Base
   #uploaders
   mount_uploader :image, ImageUploader
   mount_uploader :printable_file, FileUploader
+
+  #SLUGS
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 end

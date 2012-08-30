@@ -2,7 +2,7 @@ class OrdersController < InheritedResources::Base
 	before_filter :authenticate_user!
 
 	def index
-		@orders = current_user.orders
+		@orders = current_user.orders.completed
 	end
 
 	def show
@@ -15,9 +15,29 @@ class OrdersController < InheritedResources::Base
 		@order.deal = Deal.find(params[:deal_id])
 		if @order.save
 			if @order.purchase
-				redirect_to success_order_path @order
+				@order.complete!
+				redirect_to success_deal_order_path(@order.deal,@order)
 			else
-				redirect_to failure_order_path @order
+				redirect_to failure_deal_order_path(@order.deal,@order)
+			end
+		else
+			render 'new'
+		end
+	end
+
+	def edit
+		@order = current_user.orders.find(params[:id])
+	end
+
+	def update
+		@order = current_user.orders.find(params[:id])
+		@order.ip_address = request.remote_ip
+		if @order.update_attributes(params[:order])
+			if @order.purchase
+				@order.complete!
+				redirect_to success_deal_order_path(@order.deal,@order)
+			else
+				redirect_to failure_deal_order_path(@order.deal,@order)
 			end
 		else
 			render 'new'

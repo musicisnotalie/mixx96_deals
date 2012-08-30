@@ -1,13 +1,14 @@
 Mixx96Deals::Application.routes.draw do
-  
   resources :deals do
-		resources :orders
+		resources :orders do
+      get 'failure', :on => :member
+      get 'success', :on => :member
+    end
 	end
 
-	resources :orders do
-    get 'failure', :on => :member
-    get 'success', :on => :member
-  end
+
+  resources :orders
+  resources :merchants
 
   devise_for :users
 
