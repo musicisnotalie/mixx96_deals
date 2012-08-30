@@ -5,16 +5,16 @@ set :rvm_type, :system
 
 # main details
 set :application, "MIXX96 Deals"
-role :web, "deals.mixx96.com"
-role :app, "deals.mixx96.com"
-role :db,  "deals.mixx96.com", :primary => true
+role :web, "66.7.104.146"
+role :app, "66.7.104.146"
+role :db,  "66.7.104.146", :primary => true
 
 # server details
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 set :deploy_to, "/var/www/deals.mixx96.com"
 set :deploy_via, :remote_cache
-set :user, "passenger"
+set :user, "admin"
 set :use_sudo, false
 
 # repo details

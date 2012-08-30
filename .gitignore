@@ -18,4 +18,3 @@ pickle-email-*.html
 public/uploads
 # Mac Stuff
 .DS_store
-.rvmrc
