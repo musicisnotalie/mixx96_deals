@@ -1,6 +1,7 @@
 # RVM bootstrap
 require 'rvm/capistrano'
 require 'bundler/capistrano'
+
 set :rvm_ruby_string, '1.9.2-p320'
 set :rvm_type, :system
 
@@ -50,7 +51,8 @@ namespace :deploy do
   end
 end
 
-after 'deploy:update_code', 'deploy:symlink_shared'
+before "deploy:assets:precompile", "deploy:symlink_shared"
+#after 'deploy:update_code', 'deploy:symlink_shared'
 
 # namespace :bundler do
 #   desc "Symlink bundled gems on each release"
