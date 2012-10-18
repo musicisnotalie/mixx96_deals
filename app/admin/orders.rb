@@ -1,7 +1,7 @@
 ActiveAdmin.register Order do
-  scope :complete, :default => true
-  scope :incomplete
-  scope :all
+  #scope :complete, :default => true
+  #scope :incomplete
+  #scope :all
 
   filter :merchants
   filter :deal
