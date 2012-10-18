@@ -18,9 +18,9 @@ class Order < ActiveRecord::Base
   validate :validate_card, :on => :create
 
   #scopes
-  #scope :complete, lambda { where :completed => true }
-  #scope :incomplete, lambda { where :completed => false }
-  #scope :all, lambda { all }
+  scope :complete, lambda { where :completed => true }
+  scope :incomplete, lambda { where :completed => false }
+  scope :all, lambda { all }
   
   #methods
   def purchase
