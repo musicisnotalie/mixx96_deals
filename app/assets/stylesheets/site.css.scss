@@ -1,3 +1,109 @@
 // Place all the styles related to the site controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  #page-background {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    padding: 10px;
+  }
+
+  &.show {
+    #main {
+      background: white;
+      .pad-box {padding:10px}
+    }
+  }
+}
+
+.thumbnail {
+  background:white;
+  border:none;
+  position:relative;
+  h3 {
+    height:40px;
+    line-height: 20px;
+    margin: 5px 0;
+  }
+  .offer-type {
+    color: white;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box; /* prevents bg color from leaking outside the border */
+    background: #226ab3;
+    font-size:12px;
+    padding: 4px 0;
+    position:absolute;
+    text-align:center;
+    top: 0;
+    left:0;
+    width:100%;
+    &.coupon {
+      background: #cb1960;
+    }
+    &.ad {
+      background: #663b80;
+    }
+    &.event {
+      background: #07a1b2;
+    }
+  }
+}
+
+#asides {
+  h1.brand {
+    text-align:center;
+  }
+  .well.sidebar-nav {
+    -moz-border-radius: 0 21px 21px 21px;
+    -webkit-border-radius: 0 21px 21px 21px;
+    border-radius: 0 21px 21px 21px; /* border radius */
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box; /* prevents bg color from leaking outside the border */
+    background-color: #653b7f; /* layer fill content */
+    -moz-box-shadow: 1px 1px 2px rgba(1,1,1,.75), inset 0 0 40px rgba(1,1,1,.3), inset 0 0 0 1px rgba(102,59,128,.5); /* drop shadow, inner shadow and inner glow */
+    -webkit-box-shadow: 1px 1px 2px rgba(1,1,1,.75), inset 0 0 40px rgba(1,1,1,.3), inset 0 0 0 1px rgba(102,59,128,.5); /* drop shadow, inner shadow and inner glow */
+    box-shadow: 1px 1px 2px rgba(1,1,1,.75), inset 0 0 40px rgba(1,1,1,.3), inset 0 0 0 1px rgba(102,59,128,.5); /* drop shadow, inner shadow and inner glow */
+
+    color: #fff; /* text color */
+    font-family: "Helvetica Neue";
+    font-size: 18px;
+    text-shadow: 2px 1px 3px rgba(0,0,0,.75); /* drop shadow */
+
+    h2 {text-align:center;}
+
+    a {
+      color: #fff; /* text color */
+      font-family: "Helvetica Neue";
+      font-size: 18px;
+      text-shadow: 2px 1px 3px rgba(0,0,0,.75); /* drop shadow */
+      &:hover {
+        background-color:#9053b5;
+      }
+      &.active {
+       background-color:#9053b5; 
+      }
+    }
+
+    li {
+      border-bottom: 1px solid white;
+      padding: 5px 0;
+    }
+
+    #mailing-list {
+      margin-top:1.5em;
+      padding:0 15px;
+      p {font-size:14px;}
+    }
+  }
+}

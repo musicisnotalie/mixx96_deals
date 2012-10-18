@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120720155922) do
+ActiveRecord::Schema.define(:version => 20121018155451) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -57,11 +57,10 @@ ActiveRecord::Schema.define(:version => 20120720155922) do
 
   create_table "categorizations", :force => true do |t|
     t.integer  "category_id"
-    t.integer  "deal_id"
-    t.integer  "coupon_id"
     t.integer  "merchant_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "offer_id"
   end
 
   create_table "coupons", :force => true do |t|
@@ -117,6 +116,30 @@ ActiveRecord::Schema.define(:version => 20120720155922) do
   end
 
   add_index "merchants", ["slug"], :name => "index_merchants_on_slug", :unique => true
+
+  create_table "offers", :force => true do |t|
+    t.string   "name"
+    t.string   "tagline"
+    t.text     "description"
+    t.decimal  "normal_price",    :precision => 8, :scale => 2
+    t.decimal  "price",           :precision => 8, :scale => 2
+    t.integer  "quantity"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "expiration_date"
+    t.string   "type"
+    t.string   "image"
+    t.integer  "merchant_id"
+    t.string   "printable_file"
+    t.datetime "deleted_at"
+    t.datetime "created_at",                                                       :null => false
+    t.datetime "updated_at",                                                       :null => false
+    t.string   "slug"
+    t.boolean  "featured",                                      :default => false
+    t.integer  "priority",                                      :default => 0
+  end
+
+  add_index "offers", ["slug"], :name => "index_offers_on_slug", :unique => true
 
   create_table "order_transactions", :force => true do |t|
     t.integer  "order_id"

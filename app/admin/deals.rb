@@ -19,7 +19,7 @@ ActiveAdmin.register Deal do
 			number_to_currency(deal.price)
 		end
 		column :quantity
-		column :sale_end_date
+		column :end_date
 		default_actions
 	end
 	
@@ -34,7 +34,7 @@ ActiveAdmin.register Deal do
 			f.input :normal_price, :as => :string
 			f.input :price, :as => :string
 			f.input :quantity, :as => :string
-			f.input :sale_end_date, :as => :date
+			f.input :end_date, :as => :date
 			f.input :deal_expiration_date, :as => :date
 			f.input :categories, :as => :check_boxes
 		end

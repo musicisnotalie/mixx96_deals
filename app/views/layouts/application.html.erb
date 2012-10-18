@@ -15,8 +15,10 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>  
 </head>
-<body>
-	
+<body class="<%= params['action'] %>">
+	<div id="page-background">
+    <%= image_tag 'bg.png', width: "100%", height: "100%" %>
+  </div>
 	  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 	  <header>
       <div class="navbar navbar-fixed-top">
@@ -53,16 +55,30 @@
 
 		<div class="row">
       <div class="span3">
-			 <div id="asides" class="well sidebar-nav">
-				<h2>Sidebar</h2>
-        <ul class="nav nav-list">
-          <li class="nav-header">Categories</li>
-          <% Category.all.each do |category| %>
-            <li><%= link_to category.name, "/?category=#{category.name.parameterize}" %></li>
-          <% end %>
-        </ul><!-- .nav .nav-list -->
-			 </div><!--#asides .well .sidebar-nav -->
+  			 <div id="asides">
+          <h1 class="brand"><%= image_tag('mixxlogo.png', alt: 'Mixx96')%></h1>
+          <div class="well sidebar-nav">
+  				<h2><%= link_to '@Mixx96', 'http://twitter.com/mixx96' %><br/>(360) 943-9937</h2>
+          <ul class="nav nav-list">
+            <li><a href="/">All Categories</a></li>
+            <% Category.all.each do |category| %>
+
+              <li><a href="/?category=<%= category.name.parameterize %>" class="<%= "active" if params['category'] == category.name.parameterize %>"><%= category.name %></a></li>
+            <% end %>
+          </ul><!-- .nav .nav-list -->
+
+          <div id="mailing-list">
+            <p>Deals delivered to your inbox!</p>
+            <form class="form-inline">
+              <input type="text" class="input-small" placeholder="Email">
+              <button type="submit" class="btn">Signup</button>
+            </form>
+          </div><!-- mailing-list -->
+        </div><!-- .well .sidebar-nav -->
+			 </div><!--#asides -->
       </div><!-- span3 -->
+
+
 			<div id="main" class="span9" role="main">
 				<%= yield %>
 			</div><!--#main -->

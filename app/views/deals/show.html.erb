@@ -1,9 +1,12 @@
 <div class="row">
 	<div class="span4">
+		<div class="pad-box">
 		<%= image_tag @deal.image.url %>
+		</div><!-- .pad-box -->
 	</div>
 
 	<div class="span5">
+		<div class="pad-box">
 		<h1><%= @deal.name %></h1>
 		<p><%= @deal.tagline %></p>
 
@@ -13,19 +16,22 @@
   		<button class="btn"><%= number_to_currency @deal.price %></button>
   		<%= link_to 'Buy', new_deal_order_path(@deal), class: 'btn btn-success' %>
 		</div>
-
-	</div>
-</div>
+		</div><!-- .pad-box -->
+	</div><!-- span5 -->
+</div><!-- row -->
 
 <div class="row">
 	
-	<div class="span7">
+	<div class="span5">
+		<div class="pad-box">
 		<%= simple_format @deal.description %>
 		<p><strong>PAID VALUE DOES NOT EXPIRE.</strong></p>
-		<p><strong>PROMOTIONAL VALUE EXPIRES ON <%= @deal.deal_expiration_date.strftime("%b %d, %Y").upcase	 %>.</strong></p>
+		<p><strong>PROMOTIONAL VALUE EXPIRES ON <%= @deal.expiration_date.strftime("%b %d, %Y").upcase	 %>.</strong></p>
+		</div><!-- .pad-box -->
 	</div>
 
-	<div class="span2">
+	<div class="span4">
+		<div class="pad-box">
 		<div class="thumbnail">
 			<%= image_tag @deal.merchant.logo.url(:thumb) %>
 			<h5><%= @deal.merchant.name %></h5>
@@ -44,5 +50,6 @@
 				<%#= @deal.merchant.twitter %>
 			<%# end %>
 		</div>
+		</div><!-- .pad-box -->
 	</div>
 </div>

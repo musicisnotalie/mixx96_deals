@@ -2,7 +2,7 @@ class Order < ActiveRecord::Base
 	#relationships
 	belongs_to :deal
 	belongs_to :user
-	has_one :transaction, :class_name => "OrderTransaction", :dependent => :destroy
+	has_many :transactions, :class_name => "OrderTransaction", :dependent => :destroy
   has_one :merchant, :through => :deal
 
 	#mass-assigment

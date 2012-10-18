@@ -1,2 +1,52 @@
-<h1>Coupons#show</h1>
-<p>Find me in app/views/coupons/show.html.erb</p>
+<div class="row">
+  <div class="span4">
+    <div class="pad-box">
+    <%= image_tag @coupon.image.url %>
+    </div><!-- .pad-box -->
+  </div>
+
+  <div class="span5">
+    <div class="pad-box">
+    <h1><%= @coupon.name %></h1>
+    <p><%= @coupon.tagline %></p>
+
+    <div class="btn-group">
+      <%= link_to 'Print Coupon', "#", class: 'btn btn-success' %>
+    </div>
+    </div><!-- .pad-box -->
+  </div><!-- span5 -->
+</div><!-- row -->
+
+<div class="row">
+  
+  <div class="span5">
+    <div class="pad-box">
+    <%= simple_format @coupon.description %>
+    <p><strong>PAID VALUE DOES NOT EXPIRE.</strong></p>
+    <p><strong>PROMOTIONAL VALUE EXPIRES ON <%= @coupon.expiration_date.strftime("%b %d, %Y").upcase   %>.</strong></p>
+    </div><!-- .pad-box -->
+  </div>
+
+  <div class="span4">
+    <div class="pad-box">
+    <div class="thumbnail">
+      <%= image_tag @coupon.merchant.logo.url(:thumb) %>
+      <h5><%= @coupon.merchant.name %></h5>
+      <address>
+        <%= @coupon.merchant.address %> <br>
+        <% unless @coupon.merchant.address2.blank? %>
+          <%= @coupon.merchant.address2 %> <br>
+        <% end %>
+        <%= "#{@coupon.merchant.city} #{@coupon.merchant.state}, #{@coupon.merchant.zip}" %>
+      </address>
+      <% unless @coupon.merchant.phone_number.blank? %>
+        <phone><%= @coupon.merchant.phone_number %></phone>
+      <% end %>
+      <email><%= @coupon.merchant.email %></email>
+      <%# unless @coupon.merchant.twitter.blank? %>
+        <%#= @coupon.merchant.twitter %>
+      <%# end %>
+    </div>
+    </div><!-- .pad-box -->
+  </div>
+</div>

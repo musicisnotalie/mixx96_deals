@@ -1,12 +1,10 @@
 class SiteController < ApplicationController
   def index
-  	@offers = []
-  	if params[:category] && category = Category.find(params[:category])
-  			@offer << category.deals if category
-  			@offer << category.coupons if category
-  	else
-  		@offers << Deal.all
-  		@offers << Coupon.all
-  	end
+    if params[:category]
+      @category = Category.find(params[:category])
+      @offers = @category.offers.order(:priority).all
+    else
+      @offers = Offer.order(:priority).all
+    end
   end
 end

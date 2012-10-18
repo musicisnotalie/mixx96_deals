@@ -2,16 +2,17 @@ ActiveAdmin.register Merchant do
 	menu :priority => 3
 	
 	filter :name
-	
-	index :as => :block do |merchant|
-    div :for => merchant, :class => "merchant-block" do
-    	div do
-    		link_to(image_tag(merchant.logo.url), edit_admin_merchant_path(merchant))
-    	end
-      h2 link_to(merchant.name, edit_admin_merchant_path(merchant))
+
+  index do
+    column :name
+    column :address do |merchant|
+      "#{merchant.address} \n #{merchant.city}, #{merchant.state} #{merchant.zip}"
     end
-  end
-  
+    column :phone_number
+    column :email
+    column :homepage
+    column :map_link
+  end  
   
 	show :title => :name do
 		render "merchant_show", :merchant => merchant
