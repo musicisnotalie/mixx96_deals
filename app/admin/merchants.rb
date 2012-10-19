@@ -12,6 +12,7 @@ ActiveAdmin.register Merchant do
     column :email
     column :homepage
     column :map_link
+    default_actions
   end  
   
 	show :title => :name do
