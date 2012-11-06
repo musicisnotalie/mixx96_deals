@@ -5,6 +5,7 @@ ActiveAdmin.register Category do
     f.inputs do
       f.input :name
     end
+    f.buttons
   end
 
 
