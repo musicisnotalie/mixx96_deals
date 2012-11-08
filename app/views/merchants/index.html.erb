@@ -1,13 +1,10 @@
-<div class="well">
+
 <h1 class="page-header">Merchants</h1>
 
-<table class="table table-striped table-bordered table-condensed">
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th>Email</th>
+      <th>Merchant</th>
       <th>Website</th>
       <th>Directions</th>
     </tr>
@@ -15,14 +12,17 @@
   <tbody>
     <% @merchants.each do |merchant| %>
       <tr>
-        <td><%= merchant.name %></td>
-        <td><%= "#{merchant.address} \n #{merchant.city}, #{merchant.state} #{merchant.zip}" %></td>
-        <td><%= merchant.phone_number %></td>
-        <td><%= merchant.email %></td>
+        <td>
+          <strong><%= merchant.name %></strong><br />
+          <address>
+            <%= "#{merchant.address} <br /> #{merchant.city}, #{merchant.state} #{merchant.zip} <br/>".html_safe %>
+            <abbr title="Phone">P:</abbr> <%= merchant.phone_number %><br />
+            <%= mail_to merchant.email %>
+          </address>
+        </td>
         <td><%= link_to "http://#{merchant.homepage}", "http://#{merchant.homepage}" %></td>
-        <td><%= merchant.map_link %></td>
+        <td><%= link_to "Map & Directions", merchant.map_link, class: 'btn', target: '_blank' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-</div>
