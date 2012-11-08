@@ -30,7 +30,7 @@
 	<div class="span4">
 
 		<div class="thumbnail">
-			<%= image_tag @deal.merchant.logo.url(:thumb) unless @deal.merchant.logo.blank? %>
+			<%= image_tag @deal.merchant.image.url(:thumb) unless @deal.merchant.image.blank? %>
 			<h5><%= @deal.merchant.name %></h5>
 			<address>
 				<%= @deal.merchant.address %> <br>
