@@ -1,34 +1,21 @@
 <div class="row">
   <div class="span4">
-    <div class="pad-box">
     <%= image_tag @ad.image.url %>
-    </div><!-- .pad-box -->
   </div>
 
-  <div class="span5">
-    <div class="pad-box">
+  <div class="span4">
     <h1><%= @ad.name %></h1>
     <p><%= @ad.tagline %></p>
-
- <!--    <div class="btn-group">
-      <%#= link_to 'Download Coupon', "#", class: 'btn btn-success' %>
-    </div> -->
-    </div><!-- .pad-box -->
-  </div><!-- span5 -->
+  </div><!-- span4 -->
 </div><!-- row -->
 
 <div class="row">
   
-  <div class="span5">
-    <div class="pad-box">
+  <div class="span4">
     <%= simple_format @ad.description %>
-    <p><strong>PAID VALUE DOES NOT EXPIRE.</strong></p>
-    <p><strong>PROMOTIONAL VALUE EXPIRES ON <%= @ad.expiration_date.strftime("%b %d, %Y").upcase   %>.</strong></p>
-    </div><!-- .pad-box -->
   </div>
 
   <div class="span4">
-    <div class="pad-box">
     <div class="thumbnail">
       <%= image_tag @ad.merchant.logo.url(:thumb) %>
       <h5><%= @ad.merchant.name %></h5>
@@ -43,10 +30,6 @@
         <phone><%= @ad.merchant.phone_number %></phone>
       <% end %>
       <email><%= @ad.merchant.email %></email>
-      <%# unless @ad.merchant.twitter.blank? %>
-        <%#= @ad.merchant.twitter %>
-      <%# end %>
     </div>
-    </div><!-- .pad-box -->
   </div>
 </div>

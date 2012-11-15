@@ -10,7 +10,9 @@
 					</div>
 	      	<%= image_tag offer.image.url() %>
 	      	<h3><%= offer.name %></h3>
-	      	<p><%= offer.tagline %></p>
+	      	<div class="tagline">
+	      		<%= offer.tagline %>
+	      	</div>
 	      
 					<%= link_to 'Find out more.', 
 							deal_path(offer), 
@@ -23,6 +25,10 @@
 	      	<%= link_to 'Find out more.', 
 	      			ad_path(offer), 
 	      			class: 'btn btn-primary' if offer.kind_of? Ad %>
+
+	      	<%= link_to 'Find out more.', 
+	      			event_path(offer), 
+	      			class: 'btn btn-primary' if offer.kind_of? Event %>
 
 	    	</div><!-- .thumbnail -->
 	   </li><!-- span3 -->

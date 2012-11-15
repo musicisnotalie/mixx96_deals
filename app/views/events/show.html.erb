@@ -1,2 +1,35 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="row">
+  <div class="span4">
+    <%= image_tag @event.image.url %>
+  </div>
+
+  <div class="span4">
+    <h1><%= @event.name %></h1>
+    <p><%= @event.tagline %></p>
+  </div><!-- span4 -->
+</div><!-- row -->
+
+<div class="row">
+  
+  <div class="span4">
+    <%= simple_format @event.description %>
+  </div>
+
+  <div class="span4">
+    <div class="thumbnail">
+      <%= image_tag @event.merchant.logo.url(:thumb) %>
+      <h5><%= @event.merchant.name %></h5>
+      <address>
+        <%= @event.merchant.address %> <br>
+        <% unless @event.merchant.address2.blank? %>
+          <%= @event.merchant.address2 %> <br>
+        <% end %>
+        <%= "#{@event.merchant.city} #{@event.merchant.state}, #{@event.merchant.zip}" %>
+      </address>
+      <% unless @event.merchant.phone_number.blank? %>
+        <phone><%= @event.merchant.phone_number %></phone>
+      <% end %>
+      <email><%= @event.merchant.email %></email>
+    </div>
+  </div>
+</div>
