@@ -11,6 +11,9 @@ class Order < ActiveRecord::Base
 
   #virtual things
   attr_accessor :card_number, :card_verification
+
+  #callbacks
+  before_validation :generate_order_number, :on => :create
   
   #validations
   validates_presence_of :address, :city, :state, :zip,  
@@ -18,7 +21,7 @@ class Order < ActiveRecord::Base
   validate :validate_card, :on => :create
 
   #scopes
-  scope :complete, lambda { where :completed => true }
+  scope :completed, lambda { where :completed => true }
   scope :incomplete, lambda { where :completed => false }
   scope :all, lambda { all }
   
@@ -82,5 +85,15 @@ class Order < ActiveRecord::Base
       :first_name         => first_name,
       :last_name          => last_name
     )
+  end
+
+  def generate_order_number
+    record = true
+    while record
+      random = "M#{Array.new(9){rand(9)}.join}"
+      record = self.class.where(:number => random).first
+    end
+    self.number = random if self.number.blank?
+    self.number
   end
 end

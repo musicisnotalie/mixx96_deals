@@ -16,6 +16,7 @@ class OrdersController < InheritedResources::Base
 		if @order.save
 			if @order.purchase
 				@order.complete!
+				OrderMailer.order_confirmation(current_user, @order).deliver
 				redirect_to success_deal_order_path(@order.deal,@order)
 			else
 				redirect_to failure_deal_order_path(@order.deal,@order)
@@ -35,6 +36,7 @@ class OrdersController < InheritedResources::Base
 		if @order.update_attributes(params[:order])
 			if @order.purchase
 				@order.complete!
+				OrderMailer.order_confirmation(current_user, @order).deliver
 				redirect_to success_deal_order_path(@order.deal,@order)
 			else
 				redirect_to failure_deal_order_path(@order.deal,@order)

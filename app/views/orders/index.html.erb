@@ -23,7 +23,7 @@
     <td><%= order.state %></td>
     <td><%= order.zip %></td>
     <td><%= order.created_at.to_s(:short) %>
-    <td><%= link_to 'Show', order %></td>
+    <td><%= link_to 'Show', success_deal_order_path(order.deal,order) %></td>
   </tr>
 <% end %>
   </tbody>

@@ -1,0 +1,9 @@
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++ MixxMall Order <%= "##{@order.number}" %> Confirmation ++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This needs to be some content that Mixx comes up with about how this deal is delivered and thanking them for an order.
+
+Order Date: <%= @order.created_at.strftime("%b %d, %Y") %>
+Deal: <%= @order.deal.name %> // <%= @order.deal.tagline %>
+Price: <%= number_to_currency(@order.transactions.last.amount/100) %>

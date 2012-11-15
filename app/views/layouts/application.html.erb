@@ -68,7 +68,11 @@
   			 <div id="asides">
           <h1 class="brand"><a href="/"><%= image_tag('mixxlogo.png', alt: 'Mixx96')%></a></h1>
           <div class="well sidebar-nav">
-  				<h2><%= link_to '@Mixx96', 'http://twitter.com/mixx96' %><br/>(360) 943-9937</h2>
+  				<h2><%= link_to 'http://twitter.com/mixx96' do %>
+                <%= image_tag "twitter-bird-dark-bgs.png", alt: "Twitter", height: '44px', width: '44px', style: 'vertical-align:middle;' %>
+                @Mixx96
+               <% end %>
+            <br/>(360) 943-9937</h2>
           <ul class="nav nav-list">
             <li><a href="/">All Categories</a></li>
             <% Category.all.each do |category| %>

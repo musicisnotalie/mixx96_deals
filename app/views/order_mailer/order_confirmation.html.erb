@@ -1,4 +1,10 @@
-<h1>Order <%= "##{@order.number}" %> Confirmation</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Order <%= "##{@order.number}" %> Confirmation</h1>
 
 <p>This needs to be some content that Mixx comes up with about how this deal is delivered and thanking them for an order</p>
 
@@ -6,7 +12,6 @@
   <thead>
     <tr>
       <th>Order Date</th>
-      <th></th>
       <th>Deal</th>
       <th>Price</th>
     </tr>
@@ -14,11 +19,10 @@
   <tbody>
     <tr>
       <td><%= @order.created_at.strftime("%b %d, %Y") %></td>
-      <td><%= image_tag @order.deal.image.url(:thumb) %></td>
       <td><%= @order.deal.name %><br /><%= @order.deal.tagline %></td>
       <td><%= number_to_currency(@order.transactions.last.amount/100) %></td>
     </tr>
   </tbody>
 </table>
-
-<a href="/orders" class="btn">View All Orders</a>
+  </body>
+</html>
