@@ -20,7 +20,7 @@
             <%= mail_to merchant.email %>
           </address>
         </td>
-        <td><%= link_to "http://#{merchant.homepage}", "http://#{merchant.homepage}" %></td>
+        <td><%= link_to "#{merchant.homepage}", "http://#{merchant.homepage}" %></td>
         <td><%= link_to "Map & Directions", merchant.map_link, class: 'btn', target: '_blank' %></td>
       </tr>
     <% end %>

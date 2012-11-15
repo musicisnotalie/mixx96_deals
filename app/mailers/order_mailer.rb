@@ -6,4 +6,9 @@ class OrderMailer < ActionMailer::Base
     @order = order
     mail(:to => user.email, :subject => "MixxMall Order Confirmation")
   end
+
+  def deal_feedback(feedback)
+    @feedback = feedback
+    mail(:to => "mixxmall@mixx96.com", :subject => "MixxMall Deal Feeback")
+  end
 end
