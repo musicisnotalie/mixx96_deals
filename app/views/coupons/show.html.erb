@@ -20,7 +20,6 @@
   <div class="span4">
     
     <%= simple_format @coupon.description %>
-    <p><strong>PAID VALUE DOES NOT EXPIRE.</strong></p>
     <p><strong>PROMOTIONAL VALUE EXPIRES ON <%= @coupon.expiration_date.strftime("%b %d, %Y").upcase   %>.</strong></p>
   </div>
 
