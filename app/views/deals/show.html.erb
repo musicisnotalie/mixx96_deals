@@ -46,7 +46,9 @@
 			<%# unless @deal.merchant.twitter.blank? %>
 				<%#= @deal.merchant.twitter %>
 			<%# end %>
+
 		</div>
-		
+		<br />
+		<map><%= link_to "Map & Directions", @deal.merchant.map_link, class: 'btn', target: '_blank' %></map>
 	</div>
 </div>
