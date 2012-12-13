@@ -14,19 +14,19 @@
 	      		<%= offer.tagline %>
 	      	</div>
 	      
-					<%= link_to 'Find out more.', 
+					<%= link_to 'Find out more', 
 							deal_path(offer), 
 							class: 'btn btn-primary' if offer.kind_of? Deal %>
 	     
-	      	<%= link_to 'Find out more.', 
+	      	<%= link_to 'Find out more', 
 	      			coupon_path(offer), 
 	      			class: 'btn btn-primary' if offer.kind_of? Coupon %>
 
-	      	<%= link_to 'Find out more.', 
+	      	<%= link_to 'Find out more', 
 	      			ad_path(offer), 
 	      			class: 'btn btn-primary' if offer.kind_of? Ad %>
 
-	      	<%= link_to 'Find out more.', 
+	      	<%= link_to 'Find out more', 
 	      			event_path(offer), 
 	      			class: 'btn btn-primary' if offer.kind_of? Event %>
 
