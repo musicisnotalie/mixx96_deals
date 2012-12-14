@@ -11,7 +11,7 @@
 	      	<%= image_tag offer.image.url() %>
 	      	<h3><%= offer.name %></h3>
 	      	<div class="tagline">
-	      		<%= offer.tagline %>
+	      		<%= offer.tagline.truncate(100, :omission => "... (continued)") %>
 	      	</div>
 	      
 					<%= link_to 'Find out more', 

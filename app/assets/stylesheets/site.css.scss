@@ -37,8 +37,9 @@ body {
   position:relative;
   h3 {
     height:40px;
-    line-height: 20px;
+    line-height: 25px;
     margin: 5px 0;
+    padding-bottom: .2em;
   }
   .tagline {
     height: 80px;
@@ -129,3 +130,10 @@ footer {
     font-family: "Helvetica Neue";
     width:100%;
   }
+
+  @media only screen and (min-width : 768px) and (max-width : 1200px) {
+    .thumbnail h3 {
+        font-size: 14px;
+        line-height: 20px;
+      }
+}
