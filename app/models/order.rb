@@ -7,7 +7,7 @@ class Order < ActiveRecord::Base
 
 	#mass-assigment
   attr_accessible :address, :address2, :city, :state, :zip, :card_number, :card_verification, 
-  :first_name, :last_name, :card_type, :card_expires_on #(1i), card_expires_on(2i), card_expires_on(3i)
+  :first_name, :last_name, :card_type, :card_expires_on, :deal_id, :completed, :number #(1i), card_expires_on(2i), card_expires_on(3i)
 
   #virtual things
   attr_accessor :card_number, :card_verification
@@ -24,6 +24,7 @@ class Order < ActiveRecord::Base
   scope :completed, lambda { where :completed => true }
   scope :incomplete, lambda { where :completed => false }
   scope :all, lambda { all }
+  scope :recent, limit(5)
   
   #methods
   def purchase
