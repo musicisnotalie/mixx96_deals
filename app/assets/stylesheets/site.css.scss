@@ -143,23 +143,23 @@ footer {
     line-height: 20px;
   }
 
-  div.btn-group, .btn {
+  div.pad-box div.btn-group, div.pad-box .btn {
     display: block;
   }
 
-  .btn {
+  div.pad-box .btn {
     width: 137px;
   }
 
-  .btn-success {
+  div.pad-box .btn-success {
     padding: 4px 0;
   }
 
-  .btn-group > .btn + .btn {
+  div.pad-box .btn-group > .btn + .btn {
     margin-left: 0;
   }
 
-  .btn-group > .btn:first-child {
+  div.pad-box .btn-group > .btn:first-child {
     -webkit-border-top-left-radius: 4px;
     -moz-border-radius-topleft: 4px;
     border-top-left-radius: 4px;
@@ -171,7 +171,7 @@ footer {
     border-bottom-left-radius: 0;
   }
 
-  .btn-group > .btn:last-child {
+  div.pad-box .btn-group > .btn:last-child {
     -webkit-border-top-right-radius: 0;
     -moz-border-radius-topright: 0;
     border-top-right-radius: 0;
@@ -274,23 +274,23 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
-  div.btn-group, .btn {
+  div.pad-box div.btn-group, .btn {
     display: block;
   }
 
-  .btn {
+  div.pad-box .btn {
     width: 137px;
   }
 
-  .btn-success {
+  div.pad-box .btn-success {
     padding: 4px 0;
   }
 
-  .btn-group > .btn + .btn {
+  div.pad-box .btn-group > .btn + .btn {
     margin-left: 0;
   }
 
-  .btn-group > .btn:first-child {
+  div.pad-box .btn-group > .btn:first-child {
     -webkit-border-top-left-radius: 4px;
     -moz-border-radius-topleft: 4px;
     border-top-left-radius: 4px;
@@ -302,7 +302,7 @@ footer {
     border-bottom-left-radius: 0;
   }
 
-  .btn-group > .btn:last-child {
+  div.pad-box .btn-group > .btn:last-child {
     -webkit-border-top-right-radius: 0;
     -moz-border-radius-topright: 0;
     border-top-right-radius: 0;
