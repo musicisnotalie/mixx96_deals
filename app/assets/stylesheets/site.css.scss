@@ -142,6 +142,23 @@ footer {
     border-radius: 4px;
   }
 
+  div.blend p {
+    padding-top: 5px;
+  }
+
+  div.blend p {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  #asides .well.sidebar-nav div.blend p a {
+    font-size: 12px;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
 @media only screen and (min-width : 768px) and (max-width : 1200px) {
 
   .thumbnail h3 {
@@ -203,23 +220,6 @@ footer {
   
   .pad-box .table {
     background: white;
-  }
-
-  div.blend p {
-    padding-top: 5px;
-  }
-
-  div.blend p {
-    font-size: 12px;
-    line-height: 17px;
-  }
-
-  #asides .well.sidebar-nav div.blend p a {
-    font-size: 12px;
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
-    }
   }
 }
 

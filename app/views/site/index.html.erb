@@ -5,7 +5,11 @@
 	<% unless offer.quantity == 0 %>
 		<li class="span3">
 				<div class="thumbnail <%= offer_class(offer) %>">
-					<div class="offer-type <%= offer_class(offer) %>">
+					<% if offer.featured == true %>
+					<div class="offer-type <%= offer_class(offer) %>">Featured
+						<% else %>
+						<div class="offer-type <%= offer_class(offer) %>">
+						<% end %>
 						<i class="<%= offer_icon(offer) %>"></i>
 						<%= offer.type.humanize %>
 					</div>
