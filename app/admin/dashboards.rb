@@ -19,8 +19,9 @@ ActiveAdmin::Dashboards.build do
     table_for Order.recent.collect do |order| 
       column("Order") {|order|link_to(order.number, admin_order_path(order)) } 
       column("Customer") {|order|"#{order.first_name} #{order.last_name}"}
-      column ("Deal") {|order| "#{order.deal.to_s}"}
-    end  
+      column ("Deal") {|order| "#{order.deal.name}"}
+      #column ("Amount") {|order| order.transactions.amount}
+    end 
   end  
       # column do
       #   panel "Recent Customers" do

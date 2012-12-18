@@ -22,7 +22,7 @@
 		
 		<%= simple_format @deal.description %>
 		<p><strong>PAID VALUE DOES NOT EXPIRE.</strong></p>
-		<p><strong>PROMOTIONAL VALUE EXPIRES ON <%= @deal.expiration_date.strftime("%b %d, %Y").upcase	 %>.</strong></p>
+		<p><strong>PROMOTIONAL VALUE EXPIRES ON <%= @deal.expiration_date.strftime("%b %d, %Y").upcase %>. <%= link_to '*' %></strong></p>
 		
 	</div>
 
