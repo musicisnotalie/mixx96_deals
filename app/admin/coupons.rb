@@ -19,9 +19,9 @@ ActiveAdmin.register Coupon do
 	form do |f|
 		f.inputs do 
 			f.input :merchant, :required => true, :hint => "Choose the merchant this coupon belongs to."
-			f.input :image, :as => :file, :hint => (f.template.image_tag(f.object.image.url) if !f.object.image.url.blank?)
-  		f.input :image_cache, :as => :hidden 
-  		f.input :featured
+			f.input :image, :as => :file, :hint => (f.template.image_tag(f.object.image.url) if !f.object.image.url.blank?), :hint => "Must be 360 pixels wide x 268 pixels high or 4 x 3"
+  			f.input :image_cache, :as => :hidden 
+  			f.input :featured
 			f.input :priority, :as => :string
 			f.input :name, :required => true
 			f.input :tagline, :required => true			
