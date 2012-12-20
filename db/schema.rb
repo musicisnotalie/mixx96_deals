@@ -120,8 +120,8 @@ ActiveRecord::Schema.define(:version => 20121214200329) do
 
   create_table "offers", :force => true do |t|
     t.string   "name"
-    t.text     "description"
     t.string   "tagline"
+    t.text     "description"
     t.decimal  "normal_price",    :precision => 8, :scale => 2
     t.decimal  "price",           :precision => 8, :scale => 2
     t.integer  "quantity"
@@ -133,8 +133,8 @@ ActiveRecord::Schema.define(:version => 20121214200329) do
     t.integer  "merchant_id"
     t.string   "printable_file"
     t.datetime "deleted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                       :null => false
+    t.datetime "updated_at",                                                       :null => false
     t.string   "slug"
     t.boolean  "featured",                                      :default => false
     t.integer  "priority",                                      :default => 0
