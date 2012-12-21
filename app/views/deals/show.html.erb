@@ -19,10 +19,9 @@
 <div class="row">
 	
 	<div class="span4">
-		
+		<h4 class="deal-header4">Things you need to know about this Deal:</h4>
 		<%= simple_format @deal.description %>
-		<p><strong>PAID VALUE DOES NOT EXPIRE.</strong></p>
-		<p><strong>PROMOTIONAL VALUE EXPIRES ON <%= @deal.expiration_date.strftime("%b %d, %Y").upcase %>. <%= link_to '*' %></strong></p>
+		<h6>PAID VALUE DOES NOT EXPIRE.<br />PROMOTIONAL VALUE EXPIRES ON <%= @deal.expiration_date.strftime("%b %d, %Y").upcase %>. <%= link_to '*' %></h6>
 		
 	</div>
 

@@ -34,7 +34,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </a>
-
+            <%= image_tag('mixxlogo-thumb.png', alt: 'Mixx96', class: 'brand-img')%>
             <%= link_to 'Mixx96Deals', root_url, class: 'brand' %>  
             <div class="nav-collapse collapse">
               <ul class="nav">
@@ -79,7 +79,9 @@
           <ul class="nav nav-list">
             <li><a href="/">All Categories</a></li>
             <% Category.order(:sort).all.each do |category| %>
+            <% unless category.offers.empty? %>
               <li><a href="/?category=<%= category.name.parameterize %>" class="<%= "active" if params['category'] == category.name.parameterize %>"><%= category.name %></a></li>
+              <% end %>
             <% end %>
           </ul><!-- .nav .nav-list -->
 
