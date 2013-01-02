@@ -67,8 +67,14 @@
 		<% end %>
 
 		<div class="row">
+      <div id="main" class="span9 pull-right <%= 'white-bg' if params[:controller] != 'site' %>" role="main">
+        <div class="pad-box">
+          <%= yield %>
+        </div>
+      </div><!--#main -->
+      
       <div class="span3">
-  			 <div id="asides">
+  			 <div id="asides" class="clearfix">
           <h1 class="brand"><a href="http://mixx96.com/"><%= image_tag('mixxlogo.png', alt: 'Mixx96')%></a></h1>
           <div class="well sidebar-nav">
   				<h2><%= link_to 'http://twitter.com/mixx96' do %>
@@ -106,11 +112,7 @@
       </div><!-- span3 -->
 
 
-			<div id="main" class="span9 <%= 'white-bg' if params[:controller] != 'site' %>" role="main">
-        <div class="pad-box">
-				  <%= yield %>
-        </div>
-			</div><!--#main -->
+			
 		</div><!--.row-->
 	</div><!--.container-->
 
