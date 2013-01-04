@@ -235,6 +235,10 @@ span.stButton {
   .pad-box .table {
     background: white;
   }
+
+  .navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner {
+    padding: 0 0 0 5px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1200px) {
