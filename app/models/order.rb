@@ -31,6 +31,7 @@ class Order < ActiveRecord::Base
     response = ::GATEWAY.purchase(price_in_cents, credit_card, purchase_options)
     transactions.create!(:action => "purchase", :amount => price_in_cents, :response => response)
     response.success?
+    deal.quantity = -1
   end
   
   def price_in_cents

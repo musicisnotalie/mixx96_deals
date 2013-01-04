@@ -10,4 +10,8 @@ class Offer < ActiveRecord::Base
   #SLUGS
   extend FriendlyId
   friendly_id :name, use: :slugged
+
+  # def active_offers
+  # 	@offer = Offer.where("end_date >= ?", Date.today)
+  # end
 end

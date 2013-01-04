@@ -26,6 +26,7 @@ ActiveAdmin.register Coupon do
 			f.input :name, :required => true
 			f.input :tagline, :required => true			
 			f.input :description, :required => true
+			f.input :end_date, :as => :date
 			f.input :expiration_date, :as => :date, :required => true
 			f.input :printable_file, :as => :file, :hint => "Must be a PDF"
 			f.input :categories, :as => :check_boxes

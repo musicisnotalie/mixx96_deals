@@ -6,4 +6,8 @@ class DealsController < ApplicationController
   def feedback
     
   end
+
+  # def active_deals
+  # 	scope(:find => where(:end_date >= Date.today))
+  # end
 end
