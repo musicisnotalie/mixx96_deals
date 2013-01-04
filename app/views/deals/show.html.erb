@@ -44,18 +44,14 @@
 			<%# unless @deal.merchant.twitter.blank? %>
 				<%#= @deal.merchant.twitter %>
 			<%# end %>
-			
-		<br />
-		<map><%= link_to "Map & Directions", @deal.merchant.map_link, class: 'btn', target: '_blank' %></map>
-	</div>
-		
-	</div>
-	<div class="span9">
-	    <span class='st_sharethis_hcount' displayText='ShareThis'></span>
-	    <span class='st_facebook_hcount' displayText='Facebook'></span>
-	    <span class='st_twitter_hcount' displayText='Tweet'></span>
-	    <span class='st_linkedin_hcount' displayText='LinkedIn'></span>
-	    <span class='st_pinterest_hcount' displayText='Pinterest'></span>
-	    <span class='st_email_hcount' displayText='Email'></span>
+			<br />
+			<map><%= link_to "Map & Directions", @deal.merchant.map_link, class: 'btn', target: '_blank' %></map>
+		</div>
+		<div class="span5" id="socialSharing">
+		    <span class='st_sharethis_hcount' displayText='ShareThis'></span>
+		    <span class='st_facebook_hcount' displayText='Facebook'></span>
+		    <span class='st_twitter_hcount' displayText='Tweet'></span>
+		    <span class='st_email_hcount' displayText='Email'></span>
+		</div>
 	</div>
 </div>
