@@ -15,13 +15,18 @@ class OrdersController < InheritedResources::Base
 		@order.deal = Deal.find(params[:deal_id])
 		if @order.save
 			if @order.purchase
-				# @order.deal.quantity = @order.deal.quantity - 1
+				# if @order.deal.quantity != nil || 0
+					@order.deal.quantity = @order.deal.quantity - 1
+				# else
+				# 	redirect_to failure_deal_order_path(@order.deal,@order)
+
 				@order.complete!
 				OrderMailer.order_confirmation(current_user, @order).deliver
 				redirect_to success_deal_order_path(@order.deal,@order)
 			else
 				redirect_to failure_deal_order_path(@order.deal,@order)
 			end
+			# end
 		else
 			render 'new'
 		end

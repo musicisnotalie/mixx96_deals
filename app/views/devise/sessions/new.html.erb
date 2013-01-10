@@ -9,7 +9,7 @@
     <%#= f.input :email_confirmation, :required => true %>
     <%= f.input :password, :required => true %>
     <%= f.input :password_confirmation, :required => true %>
-    <%= f.check_box :age_verify %><label for="age_verify" style="display: inline; vertical-align: middle; padding: 0 0 0 4px;">I certify that I am at least 13 years of age</label>
+    <%= f.input :age_verify, :as => :boolean, :required => true %>
   </div>
 
   <div class="form-actions">
@@ -34,3 +34,4 @@
 <% end %>
 <%= render "devise/shared/links" %>
 </div>
+

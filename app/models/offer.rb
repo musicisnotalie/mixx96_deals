@@ -2,7 +2,9 @@ class Offer < ActiveRecord::Base
   #relationships
   belongs_to :merchant
   has_many :categorizations
-  has_many :categories, :through => :categorizations  
+  has_many :categories, :through => :categorizations
+  has_many :deals
+  has_many :orders, :through => :deals 
 
   #uploaders
   mount_uploader :image, ImageUploader
@@ -10,8 +12,4 @@ class Offer < ActiveRecord::Base
   #SLUGS
   extend FriendlyId
   friendly_id :name, use: :slugged
-
-  # def active_offers
-  # 	@offer = Offer.where("end_date >= ?", Date.today)
-  # end
 end

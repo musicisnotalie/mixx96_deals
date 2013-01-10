@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
 	#relationships
 	belongs_to :deal
 	belongs_to :user
+  has_one :offer, :through => :deal
 	has_many :transactions, :class_name => "OrderTransaction", :dependent => :destroy
   has_one :merchant, :through => :deal
 
@@ -24,14 +25,13 @@ class Order < ActiveRecord::Base
   scope :completed, lambda { where :completed => true }
   scope :incomplete, lambda { where :completed => false }
   scope :all, lambda { all }
-  scope :recent, limit(5)
+  scope :recent, limit(10)
   
   #methods
   def purchase
     response = ::GATEWAY.purchase(price_in_cents, credit_card, purchase_options)
     transactions.create!(:action => "purchase", :amount => price_in_cents, :response => response)
     response.success?
-    deal.quantity = -1
   end
   
   def price_in_cents
