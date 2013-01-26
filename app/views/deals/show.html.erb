@@ -8,9 +8,11 @@
 		<h1><%= @deal.name %></h1>
 		<p><%= @deal.tagline %></p>
 		<div class="btn-group">
-	  		<button class="btn">You Save <%= deal_savings(@deal) %></button>
+      <button class="btn">You Save <%= deal_savings(@deal) %></button>
+      <% unless @deal.quantity.blank? %>
 	  		<button class="btn"><%= pluralize(@deal.quantity, 'deal') %> left.</button>
-	  		<button class="btn">Your Cost <%= number_to_currency @deal.price %></button>
+      <% end %>  
+      <button class="btn">Your Cost <%= number_to_currency @deal.price %></button>
 	  		<%= link_to 'Buy', new_deal_order_path(@deal), class: 'btn btn-success' %>
 		</div>
 	</div><!-- span5 -->

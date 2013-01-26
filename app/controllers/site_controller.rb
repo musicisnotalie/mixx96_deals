@@ -2,9 +2,9 @@ class SiteController < ApplicationController
   def index
     if params[:category]
       @category = Category.find(params[:category])
-      @offers = @category.offers.order("featured DESC, priority ASC").where("end_date >= ?", Date.today)
+      @offers = @category.offers.active
     else
-      @offers = Offer.order("featured DESC, priority ASC").where("end_date >= ?", Date.today)
+      @offers = Offer.active
     end
   end
 end

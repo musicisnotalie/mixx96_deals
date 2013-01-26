@@ -12,4 +12,8 @@ class Offer < ActiveRecord::Base
   #SLUGS
   extend FriendlyId
   friendly_id :name, use: :slugged
+
+  def self.active
+    where("quantity > 0 OR quantity IS NULL AND end_date >= ?", Date.today).order("featured DESC, priority ASC")
+  end
 end

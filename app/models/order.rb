@@ -39,6 +39,10 @@ class Order < ActiveRecord::Base
   end
 
   def complete!
+    if self.deal.quantity != nil && self.deal.quantity > 0
+			self.deal.decrement!(:quantity)
+      logger.debug "****************** DEAL QUANTITY DECREASED BY 1 ****************"
+    end
   	toggle!(:completed)
   	logger.debug "****************** ORDER MARKED COMPLETED ****************"
   end
