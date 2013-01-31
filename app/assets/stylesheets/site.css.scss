@@ -66,6 +66,18 @@ body {
       background: #07a1b2;
     }
   }
+} 
+
+p.general-conditions, h6.header-conditons {
+  font-size: 9px;
+}
+
+h6.header-conditons {
+  margin-bottom: 0;
+}
+
+p.general-conditions {
+  margin-bottom: 6px;
 }
 
 input[type="checkbox"] {
