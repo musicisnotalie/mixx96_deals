@@ -9,7 +9,7 @@
     <%#= f.input :email_confirmation, :required => true %>
     <%= f.input :password, :required => true %>
     <%= f.input :password_confirmation, :required => true %>
-    <%= f.input :age_verify, :required => true, :as => :boolean if devise_mapping.rememberable? %>
+    <%= f.input :age_verify, :as => :boolean, :required => true %>
   </div>
 
   <div class="form-actions">
