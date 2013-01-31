@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates_acceptance_of :eula, :message => "You must be at least 13"
 
   def password_required?
-   true
+   false
   end
 
   def email_confirmation
