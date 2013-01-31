@@ -8,7 +8,8 @@
     <%#= f.input :email_confirmation, :required => true %>
     <%= f.input :password, :required => true %>
     <%= f.input :password_confirmation, :required => true %>
-    <%= f.input :age_verify, :as => :boolean, :required => true %>
+    <%= f.label :age_verify %>
+    <%= f.check_box :age_verify, :required => true %>
   </div>
 
   <div class="form-actions">
