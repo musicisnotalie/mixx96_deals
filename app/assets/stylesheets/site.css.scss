@@ -140,6 +140,10 @@ input[type="checkbox"] {
   margin-left: -20px;
 }
 
+#reset-password.form-actions input.btn {
+  width: 262px;
+}
+
 footer {
   position:relative;
   z-index:1;
@@ -208,7 +212,7 @@ span.stButton {
     display: block;
   }
 
-  div#main.span9.white-bg div.pad-box .btn {
+  div#purchase-buttons.btn-group button.btn {
     width: 137px;
   }
 
@@ -248,6 +252,10 @@ span.stButton {
     border-bottom-left-radius: 4px;
     width: 135px;
   }
+
+  #reset-password.form-actions input.btn {
+  width: 262px;
+}
 }
 
 @media only screen and (max-width : 1200px) {

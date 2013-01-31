@@ -7,7 +7,7 @@
 		
 		<h1><%= @deal.name %></h1>
 		<p><%= @deal.tagline %></p>
-		<div class="btn-group">
+		<div class="btn-group" id="purchase-buttons">
       <button class="btn">You Save <%= deal_savings(@deal) %></button>
       <% unless @deal.quantity.blank? %>
 	  		<button class="btn"><%= pluralize(@deal.quantity, 'deal') %> left.</button>
