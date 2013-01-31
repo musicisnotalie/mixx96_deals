@@ -140,6 +140,17 @@ footer {
   color: #fff; /* text color */
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   width:100%;
+  a {
+      color: #fff; /* text color */
+      text-shadow: 2px 1px 3px rgba(0,0,0,.75); /* drop shadow */
+      &:hover {
+        background-color:#9053b5;
+        color: #FFFFFF;
+      }
+      &.active {
+       background-color:#9053b5; 
+      }
+    }
 }
 
 #mc_embed_signup input.btn {
