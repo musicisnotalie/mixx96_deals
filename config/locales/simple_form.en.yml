@@ -10,14 +10,14 @@ en:
       # html: '<abbr title="required">*</abbr>'
     error_notification:
       default_message: "Please review the problems below:"
-      age_verify: 'You must verify that you are at least 13 years old.'
+      #age_verify: 'You must verify that you are at least 13 years old.'
     # Labels and hints examples
-    labels:
+    #labels:
     # defaults:
     #     password: 'Password'
-        user:
-            new:
-                age_verify: 'I certify that I am at least 13 years of age'
+        # user:
+        #     new:
+        #         age_verify: 'I certify that I am at least 13 years of age'
     #     edit:
     #       email: 'E-mail.'
     # hints:
