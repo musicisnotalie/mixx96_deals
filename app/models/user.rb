@@ -17,10 +17,6 @@ class User < ActiveRecord::Base
    false
   end
 
-  def age_verify_required?
-   false
-  end
-
   def email_confirmation
   	""
   end
