@@ -140,6 +140,11 @@ input[type="checkbox"] {
   margin-left: -20px;
 }
 
+.checkbox input[type="checkbox"] {
+float: none;
+margin-right: 5px;
+}
+
 #reset-password.form-actions input.btn {
   width: 262px;
 }
